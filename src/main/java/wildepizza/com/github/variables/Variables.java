@@ -6,20 +6,23 @@ import java.util.HashMap;
 @SuppressWarnings({"ResultOfMethodCallIgnored", "unchecked", "unused"})
 public class Variables {
     private final HashMap<String, Object> variables;
-    private final String filePath;
+    private final File file;
 
     public Variables(String filePath) {
-        this.filePath = filePath;
+        this.file = new File(filePath);
+        variables = loadVariablesFromFile();
+    }
+    public Variables(File file) {
+        this.file = file;
         variables = loadVariablesFromFile();
     }
 
     private HashMap<String, Object> loadVariablesFromFile() {
-        File file = new File(filePath);
         try {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(new File(filePath).getAbsoluteFile()))) {
+            try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
                 return (HashMap<String, Object>) inputStream.readObject();
             } catch (FileNotFoundException e) {
                 System.out.println("Variable file not found. Creating new variable file.");
@@ -32,7 +35,7 @@ public class Variables {
     }
 
     private void saveVariablesToFile() {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(filePath))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file))) {
             outputStream.writeObject(variables);
         } catch (IOException e) {
             throw new RuntimeException(e);

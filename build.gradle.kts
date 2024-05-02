@@ -10,7 +10,7 @@ repositories {
 }
 
 tasks.jar {
-    archiveFileName.set("Variables.jar") // Set the name of the JAR file here
+    archiveFileName.set("SimpleVariables.jar") // Set the name of the JAR file here
 }
 
 dependencies {
