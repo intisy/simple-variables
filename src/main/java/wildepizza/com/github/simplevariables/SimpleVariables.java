@@ -1,18 +1,18 @@
-package wildepizza.com.github.variables;
+package wildepizza.com.github.simplevariables;
 
 import java.io.*;
 import java.util.HashMap;
 
 @SuppressWarnings({"ResultOfMethodCallIgnored", "unchecked", "unused"})
-public class Variables {
+public class SimpleVariables {
     private final HashMap<String, Object> variables;
     private final File file;
 
-    public Variables(String filePath) {
+    public SimpleVariables(String filePath) {
         this.file = new File(filePath);
         variables = loadVariablesFromFile();
     }
-    public Variables(File file) {
+    public SimpleVariables(File file) {
         this.file = file;
         variables = loadVariablesFromFile();
     }
