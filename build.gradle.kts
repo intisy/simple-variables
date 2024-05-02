@@ -2,8 +2,7 @@ plugins {
     id("java")
 }
 
-group = "wildepizza.com.github.variables"
-version = "1.0"
+group = "wildepizza.com.github.simplevariables"
 
 repositories {
     mavenCentral()
