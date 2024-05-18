@@ -1,4 +1,4 @@
-package wildepizza.com.github.simplevariables;
+package com.github.WildePizza;
 
 import java.io.*;
 import java.util.HashMap;
