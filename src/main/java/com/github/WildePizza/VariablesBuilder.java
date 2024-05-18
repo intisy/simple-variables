@@ -6,19 +6,19 @@ import java.io.File;
 public class VariablesBuilder {
     private String projectName;
     private String filePath;
-    private VariablesBuilder withProjectName(String projectName) {
+    public VariablesBuilder withProjectName(String projectName) {
         this.projectName = projectName;
         return this;
     }
-    private VariablesBuilder withFilePath(String filePath) {
+    public VariablesBuilder withFilePath(String filePath) {
         this.filePath = filePath;
         return this;
     }
-    private VariablesBuilder withFilePath(File file) {
+    public VariablesBuilder withFilePath(File file) {
         this.filePath = file.getAbsolutePath();
         return this;
     }
-    private SimpleVariables build() {
+    public SimpleVariables build() {
         String filePath;
         if (projectName != null) {
             File appDataDir;
