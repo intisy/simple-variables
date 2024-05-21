@@ -50,6 +50,9 @@ public class SimpleVariables {
     public Object getVariable(String name) {
         return variables.get(name);
     }
+    public String getFolder() {
+        return file.getParent();
+    }
 
     public boolean variableExists(String name) {
         return variables.containsKey(name);
