@@ -24,9 +24,9 @@ public class VariablesBuilder {
             File appDataDir;
             String os = System.getProperty("os.name").toLowerCase();
             if (os.contains("win")) {
-                appDataDir = new File(System.getenv("APPDATA"));
+                appDataDir = new File(System.getenv("APPDATA") + File.separator + projectName);
             } else {
-                appDataDir = new File(System.getProperty("user.home") + File.separator + ".config");
+                appDataDir = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + projectName);
             }
             if (!appDataDir.exists())
                 appDataDir.mkdirs();
