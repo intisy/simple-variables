@@ -26,7 +26,7 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
-            artifactId = 'simple-logger'
+            artifactId = 'simple-variables'
             from(components.java)
         }
     }

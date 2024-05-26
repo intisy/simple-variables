@@ -41,7 +41,7 @@ jobs:
           \`\`\`xml
             <dependency>
               <groupId>com.github.WildePizza</groupId>
-              <artifactId>simple-logger</artifactId>
+              <artifactId>simple-variables</artifactId>
               <version>${{ steps.get_latest_tag.outputs.tag }}</version>
             </dependency>
           \`\`\`
@@ -54,7 +54,7 @@ jobs:
               }
             }
             dependencies {
-                implementation 'com.github.WildePizza:simple-logger:${{ steps.get_latest_tag.outputs.tag }}'
+                implementation 'com.github.WildePizza:simple-variables:${{ steps.get_latest_tag.outputs.tag }}'
             }
           \`\`\`
           EOF
