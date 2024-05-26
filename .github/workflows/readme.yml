@@ -35,7 +35,7 @@ jobs:
           cat <<EOF > README.md
           Downloads
           ---------
-          Archives containing JAR files are available as [releases](https://github.com/WildePizza/SimpleVariables/releases).
+          Archives containing JAR files are available as [releases](https://github.com/Blizzity/SimpleVariables/releases).
           
            * Maven (inside the `pom.xml` file)
           \`\`\`xml
