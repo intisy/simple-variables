@@ -6,8 +6,8 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
 ```xml
   <dependency>
     <groupId>com.github.WildePizza</groupId>
-    <artifactId>simple-logger</artifactId>
-    <version>1.5.2</version>
+    <artifactId>simple-variables</artifactId>
+    <version>1.5.4</version>
   </dependency>
 ```
 
@@ -19,6 +19,6 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
     }
   }
   dependencies {
-      implementation 'com.github.WildePizza:simple-logger:1.5.2'
+      implementation 'com.github.WildePizza:simple-variables:1.5.4'
   }
 ```
