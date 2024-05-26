@@ -1,13 +1,13 @@
 Downloads
 ---------
-Archives containing JAR files are available as [releases](https://github.com/WildePizza/SimpleVariables/releases).
+Archives containing JAR files are available as [releases](https://github.com/Blizzity/SimpleVariables/releases).
 
  * Maven (inside the  file)
 ```xml
   <dependency>
     <groupId>com.github.WildePizza</groupId>
     <artifactId>simple-logger</artifactId>
-    <version>1.5</version>
+    <version>1.5.2</version>
   </dependency>
 ```
 
@@ -19,6 +19,6 @@ Archives containing JAR files are available as [releases](https://github.com/Wil
     }
   }
   dependencies {
-      implementation 'com.github.WildePizza:simple-logger:1.5'
+      implementation 'com.github.WildePizza:simple-logger:1.5.2'
   }
 ```
