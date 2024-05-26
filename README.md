@@ -2,23 +2,23 @@ Downloads
 ---------
 Archives containing JAR files are available as [releases](https://github.com/WildePizza/SimpleVariables/releases).
 
- * Maven (inside the `pom.xml` file)
+ * Maven (inside the  file)
 ```xml
   <dependency>
     <groupId>com.github.WildePizza</groupId>
-    <artifactId>SimpleVariables</artifactId>
-    <version>1.3</version>
+    <artifactId>simple-logger</artifactId>
+    <version>1.5</version>
   </dependency>
 ```
- 
- * Gradle (inside the `build.gradle.kts` or `build.gradle` file)
+
+ * Gradle (inside the  or  file)
 ```groovy
   repositories {
-    maven {
-        url "https://jitpack.io"
+  maven {
+        url "https://maven.pkg.github.com/Blizzity/SimpleVariables"
     }
   }
   dependencies {
-      implementation 'com.github.WildePizza:SimpleVariables:1.3'
+      implementation 'com.github.WildePizza:simple-logger:1.5'
   }
 ```
