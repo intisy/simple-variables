@@ -31,7 +31,6 @@ publishing {
     publications {
         gpr(MavenPublication) {
             artifactId = 'simple-variables'
-            from(components.java)
         }
     }
 }
