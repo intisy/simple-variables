@@ -5,12 +5,11 @@ import java.util.HashMap;
 
 @SuppressWarnings({"ResultOfMethodCallIgnored", "unchecked", "unused"})
 public class SimpleVariables {
-    private final HashMap<String, Object> variables;
-    private final File file;
+    final HashMap<String, Object> variables;
+    final File file;
 
     public SimpleVariables(String filePath) {
-        this.file = new File(filePath);
-        variables = loadVariablesFromFile();
+        this(new File(filePath));
     }
     public SimpleVariables(File file) {
         this.file = file;
@@ -34,7 +33,7 @@ public class SimpleVariables {
             throw new RuntimeException(e);}
     }
 
-    private void saveVariablesToFile() {
+    void saveVariablesToFile() {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file))) {
             outputStream.writeObject(variables);
         } catch (IOException e) {
