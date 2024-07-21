@@ -12,7 +12,7 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
   <dependency>
     <groupId>com.github.WildePizza</groupId>
     <artifactId>simple-variables</artifactId>
-    <version>1.5.6</version>
+    <version>1.5.7</version>
   </dependency>
 ```
 
@@ -28,6 +28,6 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
     }
   }
   dependencies {
-      implementation 'com.github.WildePizza:simple-variables:1.5.6'
+      implementation 'com.github.WildePizza:simple-variables:1.5.7'
   }
 ```
