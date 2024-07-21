@@ -30,27 +30,31 @@ public class VariablesBuilder {
         this.filePath = file.getAbsolutePath();
         return this;
     }
-    public VariablesBuilder withGithubFile(String url) throws IOException, GitAPIException {
+    public VariablesBuilder withGithubFile(String url) {
         return withGithubFile(url, null);
     }
-    public VariablesBuilder withGithubFile(String url, String accessToken) throws IOException, GitAPIException {
-        Path tempDir = Files.createTempDirectory("variables");
-        String regex = "https://.*/blob/.*/";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(url);
-        String repo = url.split("/blob/")[0];
-        CloneCommand command = Git.cloneRepository()
-                .setURI(repo)
-                .setDirectory(tempDir.toFile());
-        username = url.replace("https://github.com/", "").split("/")[0];
-        if (accessToken != null)
-            command.setCredentialsProvider(new UsernamePasswordCredentialsProvider(username, accessToken));
-        command.call();
-        this.filePath = tempDir.toFile().getAbsolutePath() + "/" + matcher.replaceAll("");
-        this.accessToken = accessToken;
-        isGithub = true;
-        tempDir.toFile().deleteOnExit();
-        return this;
+    public VariablesBuilder withGithubFile(String url, String accessToken) {
+        try {
+            Path tempDir = Files.createTempDirectory("variables");
+            String regex = "https://.*/blob/.*/";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(url);
+            String repo = url.split("/blob/")[0];
+            CloneCommand command = Git.cloneRepository()
+                    .setURI(repo)
+                    .setDirectory(tempDir.toFile());
+            username = url.replace("https://github.com/", "").split("/")[0];
+            if (accessToken != null)
+                command.setCredentialsProvider(new UsernamePasswordCredentialsProvider(username, accessToken));
+            command.call();
+            this.filePath = tempDir.toFile().getAbsolutePath() + "/" + matcher.replaceAll("");
+            this.accessToken = accessToken;
+            isGithub = true;
+            tempDir.toFile().deleteOnExit();
+            return this;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public SimpleVariables build() {
         String filePath;
