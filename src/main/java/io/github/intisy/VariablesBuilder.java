@@ -1,14 +1,12 @@
-package com.github.WildePizza;
+package io.github.intisy;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.jgit.api.*;
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
 @SuppressWarnings("unused")
