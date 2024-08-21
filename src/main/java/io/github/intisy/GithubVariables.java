@@ -6,7 +6,6 @@ import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
 import java.io.*;
 
-@SuppressWarnings("unused")
 public class GithubVariables extends SimpleVariables {
     final String accessToken;
     final String username;
