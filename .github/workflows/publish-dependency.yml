@@ -8,4 +8,5 @@ jobs:
     uses: intisy/workflows/.github/workflows/publish-dependency.yml@main
     with:
       repository: "intisy"
-      token: "${{ secrets.PAT }}"
+    secrets:
+      envPAT: ${{ secrets.PAT }}
