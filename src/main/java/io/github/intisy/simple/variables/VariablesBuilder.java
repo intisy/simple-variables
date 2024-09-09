@@ -1,4 +1,4 @@
-package io.github.intisy;
+package io.github.intisy.simple.variables;
 
 import java.io.File;
 import java.nio.file.Files;

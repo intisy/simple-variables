@@ -1,4 +1,4 @@
-package io.github.intisy;
+package io.github.intisy.simple.variables;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
