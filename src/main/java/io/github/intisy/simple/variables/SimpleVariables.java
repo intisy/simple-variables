@@ -1,6 +1,10 @@
 package io.github.intisy.simple.variables;
 
+import io.github.intisy.utils.utils.PasswordEncryptionUtil;
+
+import javax.crypto.spec.IvParameterSpec;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.HashMap;
 
 @SuppressWarnings({"ResultOfMethodCallIgnored", "unchecked", "unused"})
@@ -16,7 +20,7 @@ public class SimpleVariables {
         variables = loadVariablesFromFile();
     }
 
-    private HashMap<String, Object> loadVariablesFromFile() {
+    public HashMap<String, Object> loadVariablesFromFile() {
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -33,12 +37,19 @@ public class SimpleVariables {
             throw new RuntimeException(e);}
     }
 
-    void saveVariablesToFile() {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file))) {
+    public void saveVariablesToFile() {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(Files.newOutputStream(file.toPath()))) {
             outputStream.writeObject(variables);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void setSecretVariable(String name, String value, String password) throws Exception {
+        byte[] salt = PasswordEncryptionUtil.generateSalt();
+        IvParameterSpec iv = PasswordEncryptionUtil.generateIv();
+        String encryptedString = PasswordEncryptionUtil.encrypt(value, password, salt, iv);
+        setVariable(name, value);
     }
 
     public void setVariable(String name, Object value) {
