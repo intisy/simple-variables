@@ -1,13 +1,6 @@
 package io.github.intisy.simple.variables;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.eclipse.jgit.api.*;
-import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
 @SuppressWarnings("unused")
 public class VariablesBuilder {
@@ -15,6 +8,7 @@ public class VariablesBuilder {
     private String filePath;
     private String username;
     private String accessToken;
+    private String url;
     private boolean isGithub;
     public VariablesBuilder withProjectName(String projectName) {
         this.projectName = projectName;
@@ -32,6 +26,9 @@ public class VariablesBuilder {
         return withGithubFile(url, null);
     }
     public VariablesBuilder withGithubFile(String url, String accessToken) {
+        isGithub = true;
+        this.url = url;
+        this.accessToken = accessToken;
         return this;
     }
     public SimpleVariables build() {
@@ -45,6 +42,7 @@ public class VariablesBuilder {
                 appDataDir = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + projectName);
             }
             if (!appDataDir.exists())
+                //noinspection ResultOfMethodCallIgnored
                 appDataDir.mkdirs();
             filePath = appDataDir + File.separator + "variables.dat";
         } else if (this.filePath != null) {
@@ -53,7 +51,7 @@ public class VariablesBuilder {
             throw new IllegalArgumentException("No project name or file path specified.");
         }
         if (isGithub)
-            return new GithubVariables(filePath, username, accessToken);
+            return new GithubVariables(url, accessToken);
         else
             return new SimpleVariables(filePath);
     }

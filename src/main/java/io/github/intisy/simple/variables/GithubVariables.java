@@ -8,24 +8,26 @@ import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GithubVariables extends SimpleVariables {
     final String accessToken;
-    final String username;
-    public GithubVariables(String filePath, String username, String accessToken) {
-        this(new File(filePath), username, accessToken);
+    final String url;
+    public GithubVariables(String url, String accessToken) {
+        this(new File(downloadFile(url, accessToken)), url, accessToken);
     }
-    public GithubVariables(File file, String username, String accessToken) {
+    public GithubVariables(File file, String url, String accessToken) {
         super(file);
-        this.username = username;
+        this.url = url;
         this.accessToken = accessToken;
     }
 
-    @Override
-    public HashMap<String, Object> loadVariablesFromFile() {
+    public static String getUsername(String url) {
+        return url.replace("https://github.com/", "").split("/")[0];
+    }
+
+    public static String downloadFile(String url, String accessToken) {
         try {
             Path tempDir = Files.createTempDirectory("variables");
             String regex = "https://.*/blob/.*/";
@@ -35,15 +37,13 @@ public class GithubVariables extends SimpleVariables {
             CloneCommand command = Git.cloneRepository()
                     .setURI(repo)
                     .setDirectory(tempDir.toFile());
-            username = url.replace("https://github.com/", "").split("/")[0];
+            String username = getUsername(url);
             if (accessToken != null)
                 command.setCredentialsProvider(new UsernamePasswordCredentialsProvider(username, accessToken));
             command.call();
-            this.filePath = tempDir.toFile().getAbsolutePath() + "/" + matcher.replaceAll("");
-            this.accessToken = accessToken;
-            isGithub = true;
+            String filePath = tempDir.toFile().getAbsolutePath() + "/" + matcher.replaceAll("");
             tempDir.toFile().deleteOnExit();
-            return super.loadVariablesFromFile();
+            return filePath;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -63,7 +63,7 @@ public class GithubVariables extends SimpleVariables {
                         .call();
                 git.push()
                         .setRemote("origin")
-                        .setCredentialsProvider(new UsernamePasswordCredentialsProvider(username, accessToken))
+                        .setCredentialsProvider(new UsernamePasswordCredentialsProvider(getUsername(url), accessToken))
                         .add("main")
                         .call();
             } catch (IOException | GitAPIException e) {
