@@ -1,6 +1,6 @@
-Downloads
----------
-Archives containing JAR files are available as [releases](https://github.com/Blizzity/Blizzity/SimpleVariables/releases).
+# 
+
+Archives containing JAR files are available as [releases](https://github.com/intisy/simple-variables/releases).
 
 ## Usage in private repos (faster)
 
@@ -8,13 +8,13 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
 ```xml
   <repository>
       <id>github</id>
-      <url>https://maven.pkg.github.com/Blizzity/Blizzity/SimpleVariables</url>
+      <url>https://maven.pkg.github.com/intisy/simple-variables</url>
       <snapshots><enabled>true</enabled></snapshots>
   </repository>
   <dependency>
       <groupId>io.github.intisy</groupId>
-      <artifactId>Blizzity/SimpleVariables</artifactId>
-      <version>1.7.1</version>
+      <artifactId>simple-variables</artifactId>
+      <version>1.8.1.2</version>
   </dependency>
 ```
 
@@ -23,8 +23,8 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
   <servers>
       <server>
           <id>github</id>
-          <username><your-username></username>
-          <password><your-access-token></password>
+          <username>your-username</username>
+          <password>your-access-token</password>
       </server>
   </servers>
 ```
@@ -33,7 +33,7 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
 ```groovy
   repositories {
       maven {
-          url "https://maven.pkg.github.com/Blizzity/Blizzity/SimpleVariables"
+          url "https://maven.pkg.github.com/intisy/simple-variables"
           credentials {
               username = "<your-username>"
               password = "<your-access-token>"
@@ -41,7 +41,7 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
       }
   }
   dependencies {
-      implementation 'io.github.intisy:Blizzity/SimpleVariables:1.7.1'
+      implementation 'io.github.intisy:simple-variables:1.8.1.2'
   }
 ```
 
@@ -50,9 +50,13 @@ Archives containing JAR files are available as [releases](https://github.com/Bli
  * Gradle (inside the  or  file)
 ```groovy
   plugins {
-      id "io.github.intisy.github-gradle" version "1.1"
+      id "io.github.intisy.simple-variables" version "1.8.1.2"
   }
   dependencies {
-      githubImplementation "intisy:Blizzity/SimpleVariables:1.7.1"
+      githubImplementation "intisy:simple-variables:1.8.1.2"
   }
 ```
+
+## License
+
+[![Apache License 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
