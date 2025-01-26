@@ -33,26 +33,27 @@ public class VariablesBuilder {
     }
     public SimpleVariables build() {
         String filePath;
-        if (projectName != null) {
-            File appDataDir;
-            String os = System.getProperty("os.name").toLowerCase();
-            if (os.contains("win")) {
-                appDataDir = new File(System.getenv("APPDATA") + File.separator + projectName);
-            } else {
-                appDataDir = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + projectName);
-            }
-            if (!appDataDir.exists())
-                //noinspection ResultOfMethodCallIgnored
-                appDataDir.mkdirs();
-            filePath = appDataDir + File.separator + "variables.dat";
-        } else if (this.filePath != null) {
-            filePath = this.filePath;
-        } else {
-            throw new IllegalArgumentException("No project name or file path specified.");
-        }
         if (isGithub)
             return new GithubVariables(url, accessToken);
-        else
+        else {
+            if (projectName != null) {
+                File appDataDir;
+                String os = System.getProperty("os.name").toLowerCase();
+                if (os.contains("win")) {
+                    appDataDir = new File(System.getenv("APPDATA") + File.separator + projectName);
+                } else {
+                    appDataDir = new File(System.getProperty("user.home") + File.separator + ".config" + File.separator + projectName);
+                }
+                if (!appDataDir.exists())
+                    //noinspection ResultOfMethodCallIgnored
+                    appDataDir.mkdirs();
+                filePath = appDataDir + File.separator + "variables.dat";
+            } else if (this.filePath != null) {
+                filePath = this.filePath;
+            } else {
+                throw new IllegalArgumentException("No project name or file path specified.");
+            }
             return new SimpleVariables(filePath);
+        }
     }
 }
