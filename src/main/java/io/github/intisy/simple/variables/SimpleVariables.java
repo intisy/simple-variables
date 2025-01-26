@@ -22,6 +22,10 @@ public class SimpleVariables {
 
     public HashMap<String, Object> loadVariablesFromFile() {
         try {
+            File parent = file.getParentFile();
+            if (!parent.exists()) {
+                parent.mkdirs();
+            }
             if (!file.exists()) {
                 file.createNewFile();
             }
