@@ -18,5 +18,5 @@ online {
 
 dependencies {
     githubImplementation "intisy:java-utils:1.4.1"
-    compileOnly 'org.eclipse.jgit:org.eclipse.jgit:3.5.0.201409260305-r'
+    compileOnly "com.google.code.gson:gson:2.13.1"
 }
