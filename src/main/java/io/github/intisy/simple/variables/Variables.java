@@ -75,9 +75,23 @@ public class Variables {
         return properties.getProperty(name);
     }
 
+    public Object getOrDefault(String name, Object defaultValue) {
+        Object value = get(name);
+        return value != null ? value : defaultValue;
+    }
+
+    public <T> T get(String name, Class<T> clazz) {
+        return clazz.cast(get(name));
+    }
+
     public JsonElement getJson(String name) {
         String value = properties.getProperty(name);
         return value != null ? JsonParser.parseString(value) : null;
+    }
+
+    public JsonElement getJsonOrDefault(String name, JsonElement defaultValue) {
+        JsonElement value = getJson(name);
+        return value != null ? value : defaultValue;
     }
 
     public boolean contains(String name) {
