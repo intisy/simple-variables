@@ -2,7 +2,11 @@
 
 Archives containing JAR files are available as [releases](https://github.com/intisy/simple-variables/releases).
 
-## Usage in private repos (faster)
+## What is simple-variables?
+
+
+
+## Usage in private projects
 
  * Maven (inside the  file)
 ```xml
@@ -14,7 +18,7 @@ Archives containing JAR files are available as [releases](https://github.com/int
   <dependency>
       <groupId>io.github.intisy</groupId>
       <artifactId>simple-variables</artifactId>
-      <version>1.8.3.1</version>
+      <version>2.0.1.1</version>
   </dependency>
 ```
 
@@ -41,11 +45,11 @@ Archives containing JAR files are available as [releases](https://github.com/int
       }
   }
   dependencies {
-      implementation 'io.github.intisy:simple-variables:1.8.3.1'
+      implementation 'io.github.intisy:simple-variables:2.0.1.1'
   }
 ```
 
-## Usage in public repos (slower and only works in gradle but safer)
+## Usage in public projects
 
  * Gradle (inside the  or  file)
 ```groovy
@@ -53,9 +57,13 @@ Archives containing JAR files are available as [releases](https://github.com/int
       id "io.github.intisy.github-gradle" version "1.3.7"
   }
   dependencies {
-      githubImplementation "intisy:simple-variables:1.8.3.1"
+      githubImplementation "intisy:simple-variables:2.0.1.1"
   }
 ```
+
+Once you have it installed you can use it like so:
+
+
 
 ## License
 
