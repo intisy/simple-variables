@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id "io.github.intisy.github-gradle" version "1.8.1.1"
+    id "io.github.intisy.github-gradle" version "1.8.2"
     id "io.github.intisy.online-gradle" version "1.4.3"
 }
 
@@ -18,6 +18,16 @@ online {
 
 github {
     accessToken = System.getenv("GITHUB_TOKEN") ?: ""
+}
+
+publishGithub {
+    releaseName = "Release ${project.version}"
+    artifacts {
+        artifact {
+            classifier = ""
+            jar = file("build/libs/simple-variables.jar")
+        }
+    }
 }
 
 dependencies {
