@@ -16,6 +16,10 @@ online {
     ]
 }
 
+github {
+    accessToken = System.getenv("GITHUB_TOKEN") ?: ""
+}
+
 dependencies {
     githubImplementation "intisy:java-utils:1.4.1"
     compileOnly "com.google.code.gson:gson:2.13.1"
