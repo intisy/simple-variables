@@ -18,7 +18,7 @@ Archives containing JAR files are available as [releases](https://github.com/int
   <dependency>
       <groupId>io.github.intisy</groupId>
       <artifactId>simple-variables</artifactId>
-      <version>2.0.1.1</version>
+      <version>2.0.1.2</version>
   </dependency>
 ```
 
@@ -45,7 +45,7 @@ Archives containing JAR files are available as [releases](https://github.com/int
       }
   }
   dependencies {
-      implementation 'io.github.intisy:simple-variables:2.0.1.1'
+      implementation 'io.github.intisy:simple-variables:2.0.1.2'
   }
 ```
 
@@ -57,7 +57,7 @@ Archives containing JAR files are available as [releases](https://github.com/int
       id "io.github.intisy.github-gradle" version "1.3.7"
   }
   dependencies {
-      githubImplementation "intisy:simple-variables:2.0.1.1"
+      githubImplementation "intisy:simple-variables:2.0.1.2"
   }
 ```
 
