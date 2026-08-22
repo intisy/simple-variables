@@ -1,14 +1,14 @@
-# 
+# Simple Variables
 
 Archives containing JAR files are available as [releases](https://github.com/intisy/simple-variables/releases).
 
 ## What is simple-variables?
 
-
+Simple variable system for java
 
 ## Usage in private projects
 
- * Maven (inside the  file)
+ * Maven (inside the `pom.xml` file)
 ```xml
   <repository>
       <id>github</id>
@@ -18,11 +18,11 @@ Archives containing JAR files are available as [releases](https://github.com/int
   <dependency>
       <groupId>io.github.intisy</groupId>
       <artifactId>simple-variables</artifactId>
-      <version>2.0.1.3</version>
+      <version>2.0.2.0</version>
   </dependency>
 ```
 
- * Maven (inside the  file)
+ * Maven (inside the `settings.xml` file)
 ```xml
   <servers>
       <server>
@@ -33,7 +33,7 @@ Archives containing JAR files are available as [releases](https://github.com/int
   </servers>
 ```
 
- * Gradle (inside the  or  file)
+ * Gradle (inside the `build.gradle.kts` or `build.gradle` file)
 ```groovy
   repositories {
       maven {
@@ -45,25 +45,21 @@ Archives containing JAR files are available as [releases](https://github.com/int
       }
   }
   dependencies {
-      implementation 'io.github.intisy:simple-variables:2.0.1.3'
+      implementation 'io.github.intisy:simple-variables:2.0.2.0'
   }
 ```
 
 ## Usage in public projects
 
- * Gradle (inside the  or  file)
+ * Gradle (inside the `build.gradle.kts` or `build.gradle` file)
 ```groovy
   plugins {
       id "io.github.intisy.github-gradle" version "1.3.7"
   }
   dependencies {
-      githubImplementation "intisy:simple-variables:2.0.1.3"
+      githubImplementation "intisy:simple-variables:2.0.2.0"
   }
 ```
-
-Once you have it installed you can use it like so:
-
-
 
 ## License
 
